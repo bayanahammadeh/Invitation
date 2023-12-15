@@ -40,18 +40,6 @@
                                 <li>
                                     <a class="dropdown-item" href="{{ url('external') }}">الدعوات العامة</a>
                                 </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">الألقاب</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">الفئات</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">تعديل معلومات الدخول</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">اضافة موظفين</a>
-                                </li>
                             </ul>
                         </li>
 
@@ -63,15 +51,6 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li>
                                     <a class="dropdown-item" href="{{ url('all') }}">جميع الدعوات</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">الكراسي</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">الكراسي الفارغة فقط</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">تقارير الكراسي</a>
                                 </li>
                             </ul>
                         </li>

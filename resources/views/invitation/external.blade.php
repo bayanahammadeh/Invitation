@@ -96,13 +96,6 @@
 <div class="container" style="background-color: #fff">
     <main class="flex-shrink-1">
         <div class="container">
-            <div class="row">
-                <div class="col-md-1 mb-1" style="float: right">
-                    <a href="#" class="btn btn-primary btn-sm float-end" id="add-social"
-                        data-bs-toggle="modal" data-bs-target="#AddModal">إضافة</a>
-                </div>
-            </div>
-
             <table id="example" class="table table-striped table-bordered" style="text-align: right;">
                 <thead>
                     <tr>
