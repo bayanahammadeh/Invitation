@@ -1,0 +1,43 @@
+body {
+    direction: rtl;
+}
+
+main > .container {
+    padding: 60px 15px 0;
+    margin-top: 50px;
+}
+
+#nav {
+    color: black;
+    background-attachment: #ffffff;
+    box-shadow: 0 0 2px 0 #03658c;
+}
+
+.nav-link {
+    color: black;
+}
+.dropdown-menu {
+    text-align: right;
+}
+link.active, .navbar-nav .nav-link.show {
+    color: black;
+}
+
+.nav-link:focus, .nav-link:hover {
+    color: black;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: #ffffff;
+    text-align: center;
+}
+
+div.dt-buttons {
+    position: initial;
+    direction: ltr;
+}
