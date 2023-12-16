@@ -155,10 +155,6 @@ class InvitationController extends Controller
         $inv->chair_id = $request->chair_id;
 
 
-
-
-
-
         $inv->update();
 
         return response()->json([

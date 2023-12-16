@@ -171,7 +171,7 @@
                     .append('<option selected="selected" value="...">الرجاء الاختيار</option>');
                 $.each(response.nks, function(key, item) {
                     $('#nike2')
-                        .append($("<option name='nk2' id='nk2'></option>")
+                        .append($("<option name='nk2'></option>")
                             .attr("id", item.id)
                             .text(item.name));
 
@@ -181,14 +181,13 @@
                     .append('<option selected="selected" value="...">الرجاء الاختيار</option>');
                 $.each(response.categories, function(key, item) {
                     $('#category')
-                        .append($("<option name='category' id='category'></option>")
+                        .append($("<option name='category'></option>")
                             .attr("id", item.id)
                             .text(item.name));
                 });
-                $("#example").dataTable({
-                    language: {
-                        url: "/assets/lang/ar.json",
-                    },
+                var table =$("#example").dataTable({
+
+
                 });
             }
         });
