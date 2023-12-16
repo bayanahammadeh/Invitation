@@ -28,7 +28,7 @@ class TestMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Test Mail',
+            subject: 'دعوة',
         );
     }
 
@@ -38,7 +38,7 @@ class TestMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'invitation.index',
+            view: 'invitation.mail',
         );
     }
 

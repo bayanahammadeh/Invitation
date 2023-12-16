@@ -36,5 +36,5 @@ Route::post('update/{id}', [App\Http\Controllers\InvitationController::class, 'u
 
 Route::post('chair-condition/{id}', [App\Http\Controllers\ChairController::class, 'chair_condition']);
 
-Route::get('send', [App\Http\Controllers\MailController::class, 'index']);
+Route::get('send/{email}', [App\Http\Controllers\MailController::class, 'index']);
 

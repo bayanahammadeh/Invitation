@@ -218,10 +218,11 @@
             var invitation_type_mobile = $('#invitation_type_mobile').is(':checked');
             var ite = invitation_type_email ? 1 : 0;
             var itm = invitation_type_mobile ? 1 : 0;
+            var email1= $('.email1').val();
             var os = 1;
             var data = {
                 'name': $('.name').val(),
-                'email1': $('.email1').val(),
+                'email1': email1,
                 'email2': $('.email2').val(),
                 'organization': $('.organization').val(),
                 'mobile': $('.mobile').val(),
@@ -245,7 +246,7 @@
                     fetch();
                     $.ajax({
                         type: 'GET',
-                        url: `/send`,
+                        url: `/send`+ '/' + email1,
                         data: data,
                         dataType: 'json',
                         success: function(response) {},

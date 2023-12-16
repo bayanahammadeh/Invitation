@@ -8,14 +8,13 @@ use App\Mail\TestMail;
 
 class MailController extends Controller
 {
-    public function index()
+    public function index($email)
     {
         $mailData = [
             'title' => 'Mail from invitation.com',
             'body' => 'This is for inviting you.'
         ];
 
-        Mail::to('bayanahammadeh@gmail.com')->send(new TestMail($mailData));
-        dd("Email send successfully.");
+        Mail::to($email)->send(new TestMail($mailData));
     }
 }
