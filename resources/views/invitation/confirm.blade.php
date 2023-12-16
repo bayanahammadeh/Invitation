@@ -73,7 +73,6 @@
                 'organization': $('.organization').val(),
                 'mobile': $('.mobile').val(),
                 'invitation_status': 2,
-                'invitation_type_mobile': 2,
                 'invitation_type_email': 1,
                 'order_status': 2,
                 'job': $('.job').val(),

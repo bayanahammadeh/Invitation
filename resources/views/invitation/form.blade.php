@@ -68,12 +68,11 @@
                 'invitation_status': 2,
                 'invitation_type_mobile': 3,
                 'invitation_type_email': 3,
-                'order_status': 3,
+                'order_status': 1,
                 'job': $('.job').val(),
                 'is_attended': 1,
                 'nick_id': $("#nike2 option:selected").attr("id"),
                 'category_id': 1,
-                'chair_id': 1,
             }
 
             $.ajax({

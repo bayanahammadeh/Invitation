@@ -65,6 +65,7 @@
 
 <script>
     function fetch_all() {
+        resetFields();
         var x, created_at;
         $.ajax({
             type: 'GET',
@@ -73,7 +74,7 @@
             success: function(response) {
                 $('tbody').html("");
                 $.each(response.invitations, function(key, item) {
-                    if (typeof item.chair_id === 'undefined' || item.chair_id === null) {
+                    if (item.chair_id === null) {
                         chair = "";
                     } else {
                         chair = item.chair.code;
@@ -83,12 +84,16 @@
                     if (item.invitation_status == "2")
                         invitation_status = "خارجي";
 
-                    if (item.is_attended == "1")
+                    if (item.is_attended == "2")
                         is_attended =
                         '<input  type="checkbox"  checked></div>';
                     else
                         is_attended =
                         '<input type="checkbox"></div>';
+                    if (item.category_id)
+                        category = item.category.name;
+                    else
+                        category = "";
 
 
                     $('tbody').append(
@@ -110,7 +115,7 @@
                         chair +
                         '</td>\
                         <td>' +
-                        item.category.name +
+                        category +
                         '</td>\
                         <td>' +
                         is_attended +
@@ -130,7 +135,7 @@
                 $.each(response.chairs, function(key, item) {
                     $('#chair')
                         .append($("<option name='chair' id='chair'></option>")
-                            .attr("id", item.id)
+                            .attr("value", item.id)
                             .text(item.code));
 
                 });
@@ -138,18 +143,17 @@
                     language: {
                         url: "/assets/lang/ar.json",
                     },
-                    lengthMenu: [5, 8],
                 });
             }
         });
     }
 
 
+    function resetFields() {
+        $('#EditModal form')[0].reset();
+    }
 
     $(document).ready(function() {
-        function resetFields() {
-            $('#EditModal form')[0].reset();
-        }
 
         $.ajaxSetup({
             headers: {
@@ -190,10 +194,9 @@
 
                     $.ajax({
                         type: 'POST',
-                        url:  `/chair-condition` + '/' + chair,
+                        url: `/chair-condition` + '/' + chair,
                         dataType: 'json',
-                        success: function(response) {
-                        }
+                        success: function(response) {}
                     })
 
                     fetch_all();

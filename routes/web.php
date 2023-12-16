@@ -38,9 +38,3 @@ Route::post('chair-condition/{id}', [App\Http\Controllers\ChairController::class
 
 Route::get('send', [App\Http\Controllers\MailController::class, 'index']);
 
-
-
-
-Route::get('chair', [App\Http\Controllers\ChairController::class, 'index']);
-Route::get('category', [App\Http\Controllers\CategoryController::class, 'index']);
-Route::get('nicknames', [App\Http\Controllers\NickeNameController::class, 'index']);

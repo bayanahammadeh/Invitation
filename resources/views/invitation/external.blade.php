@@ -5,7 +5,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                <h5 class="modal-title" id="exampleModalLabel">معلومات المدعو</h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -69,8 +69,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="toggle-mobile">هل حضر الحفل</label>
-                            <input type="checkbox" data-toggle="toggle" data-onstyle="outline-success" data-on="نعم"
-                                data-off="لا" data-offstyle="outline-danger" id="invitation_type_mobile">
+                            <input type="checkbox" id="is_attended" name="is_attended" class="is_attended">
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -190,7 +189,6 @@
                     language: {
                         url: "/assets/lang/ar.json",
                     },
-                    lengthMenu: [5, 8],
                 });
             }
         });
@@ -224,12 +222,17 @@
                 type: "GET",
                 url: `/edit-order` + '/' + id,
                 success: function(response) {
+                    if (response.invitation.is_attended == "2")
+                        $('#is_attended').prop("checked", true);
+                    else
+                        $('#is_attended').prop("checked", false);
+
                     $('#id').val(response.invitation.id);
                     $('.name').val(response.invitation.name);
                     $('.mobile').val(response.invitation.mobile);
                     $('.email1').val(response.invitation.email1);
                     $('.organization').val(response.invitation.organization);
-                    $('.job').val(response.invitation.category.name);
+                    $('.job').val(response.invitation.job);
                     $(".category").val(response.invitation.category.name);
                     $(".nike2").val(response.invitation.nk.name);
                     $('.order_status').val(response.invitation.order_status);
@@ -239,11 +242,28 @@
 
         $('.update_status').click(function(e) {
             e.preventDefault();
-            var id= $('#id').val();
+            var id = $('#id').val();
+            var invitation_type_email = $('#invitation_type_email').is(':checked');
+            var ite = invitation_type_email ? 1 : 0;
+
+            if ($('#is_attended').prop('checked')==true)
+                is_attended = 2;
+            else
+                is_attended = 1;
+
             var data = {
                 'name': $('.name').val(),
                 'email1': $('.email1').val(),
                 'order_status': $('.order_status').val(),
+                'email2': $('.email2').val(),
+                'organization': $('.organization').val(),
+                'mobile': $('.mobile').val(),
+                'invitation_status': 2,
+                'invitation_type_email': ite,
+                'job': $('.job').val(),
+                'is_attended': is_attended,
+                'nick_id': $("#nike2 option:selected").attr("id"),
+                'category_id': $("#category option:selected").attr("id"),
             }
             $.ajax({
                 type: 'POST',
@@ -254,8 +274,7 @@
                     $('#EditModal').modal('hide');
                     fetch_external();
                 },
-                error: function(response) {
-                }
+                error: function(response) {}
             })
         });
 

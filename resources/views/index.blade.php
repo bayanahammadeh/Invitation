@@ -6,7 +6,8 @@
     <main class="flex-shrink-1">
         <div class="container">
             <div class="row">
-welcome        </div>
+                أهلا بكم
+            </div>
     </main>
 </div>
 

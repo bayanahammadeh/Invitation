@@ -189,7 +189,7 @@
                     language: {
                         url: "/assets/lang/ar.json",
                     },
-                    lengthMenu: [5, 8],
+
                 });
             }
         });
@@ -233,7 +233,6 @@
                 'is_attended': 1,
                 'nick_id': $("#nike2 option:selected").attr("id"),
                 'category_id': $("#category option:selected").attr("id"),
-                'chair_id': 1,
             }
             $.ajax({
                 type: 'POST',
@@ -244,7 +243,6 @@
                     alert(response.message);
                     $('#AddModal').modal('hide');
                     fetch();
-
                     $.ajax({
                         type: 'GET',
                         url: `/send`,
@@ -252,10 +250,7 @@
                         dataType: 'json',
                         success: function(response) {},
                         error: function(response) {}
-
                     })
-
-
                 },
                 error: function(response) {
                     $("#errormsg").show();

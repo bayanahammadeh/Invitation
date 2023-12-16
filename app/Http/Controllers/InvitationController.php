@@ -121,10 +121,17 @@ class InvitationController extends Controller
         $inv = Invitation::find($id);
         $inv->name = $request->name;
         $inv->email1 = $request->email1;
+        $inv->email2 = $request->email2;
         $inv->organization = $request->organization;
         $inv->mobile = $request->mobile;
-        $inv->job = $request->job;
+        $inv->invitation_status = $request->invitation_status;
+        $inv->invitation_type_email = (int)$request->invitation_type_email;
         $inv->order_status = $request->order_status;
+        $inv->job = $request->job;
+        $inv->is_attended = $request->is_attended;
+        $inv->nick_id = $request->nick_id;
+        $inv->category_id = $request->category_id;
+        $inv->chair_id = $request->chair_id;
         $inv->update();
 
         return response()->json([
@@ -136,7 +143,22 @@ class InvitationController extends Controller
         $inv = Invitation::find($id);
         $inv->name = $request->name;
         $inv->email1 = $request->email1;
+        $inv->organization = $request->organization;
+        $inv->mobile = $request->mobile;
+        $inv->invitation_status = $request->invitation_status;
+        $inv->invitation_type_email = (int)$request->invitation_type_email;
         $inv->order_status = $request->order_status;
+        $inv->job = $request->job;
+        $inv->is_attended = $request->is_attended;
+        $inv->nick_id = $request->nick_id;
+        $inv->category_id = $request->category_id;
+        $inv->chair_id = $request->chair_id;
+
+
+
+
+
+
         $inv->update();
 
         return response()->json([
